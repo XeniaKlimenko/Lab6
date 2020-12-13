@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template <class T>
+template <class T1>
 class TArrayListIterator;
 
 template <class T>
@@ -42,10 +42,10 @@ public:
 
   template <class T1>
   friend ostream& operator<< (ostream& ostr, const TArrayList<T1> &A);
-  template<class T1>
+  template <class T1>
   friend istream& operator >> (istream& istr, TArrayList<T1> &A);
 
-  template <class T>
+  template <class T1>
   friend class TArrayListIterator;
 
   int GetCount();
