@@ -40,7 +40,7 @@ public:
   T GetFirst();
   T GetLast();
 
-  template<class T1>
+  template <class T1>
   friend ostream& operator<< (ostream& ostr, const TArrayList<T1> &A);
   template<class T1>
   friend istream& operator >> (istream& istr, TArrayList<T1> &A);
@@ -53,7 +53,7 @@ public:
 };
 
 
-template<class T1>
+template <class T1>
 ostream& operator<< (ostream& ostr, const TArrayList<T1> &A) 
 {
   int i = A.root;
@@ -65,7 +65,7 @@ ostream& operator<< (ostream& ostr, const TArrayList<T1> &A)
   return ostr;
 }
 
-template<class T1>
+template <class T1>
 istream& operator >> (istream& istr, TArrayList<T1> &A) 
 {
   int count;
@@ -78,10 +78,10 @@ istream& operator >> (istream& istr, TArrayList<T1> &A)
   return istr;
 }
 
-template<class T>
+template <class T>
 inline TArrayList<T>::TArrayList(int _size)
 {
-  if (_size <= nullptr)
+  if (_size <= 0)
     throw "wrong size";
 
   size = _size;
@@ -95,7 +95,7 @@ inline TArrayList<T>::TArrayList(int _size)
   root = -1;
 }
 
-template<class T>
+template <class T>
 TArrayList<T>::TArrayList(TArrayList<T>& _v)
 {
   count = _v.count;
@@ -112,7 +112,7 @@ TArrayList<T>::TArrayList(TArrayList<T>& _v)
   }
 
 }
-template<class T>
+template <class T>
 TArrayList<T>::~TArrayList()
 {
   if (data != nullptr)
@@ -127,10 +127,10 @@ TArrayList<T>::~TArrayList()
   }
 }
 
-template<class T>
+template <class T>
 TArrayList<T>& TArrayList<T>:: operator =(TArrayList<T>& _v)
 {
-  if (this == &v)
+  if (this == &_v)
     return *this;
 
   if (size != _v.size)
@@ -154,7 +154,7 @@ TArrayList<T>& TArrayList<T>:: operator =(TArrayList<T>& _v)
   return *this;
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::InsFirst(T d)
 {
   if (this->IsFull())
@@ -173,7 +173,7 @@ inline void TArrayList<T>::InsFirst(T d)
   count++;
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::InsLast(T d)
 {
   if (this->IsFull())
@@ -207,7 +207,7 @@ inline void TArrayList<T>::InsLast(T d)
   count++;
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
 {
   if (this->IsFull())
@@ -237,31 +237,31 @@ inline void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
   count++;
 }
 
-template<class T>
+template <class T>
 inline bool TArrayList<T>::IsEmpty(void) const
 {
   return count == 0;;
 }
 
-template<class T>
+template <class T>
 inline bool TArrayList<T>::IsFull(void) const
 {
   return count >= size;
 }
 
-template<class T>
+template <class T>
 inline TArrayListIterator<T> TArrayList<T>::begin ()
 {
   return TArrayListIterator<T>(*this, root);
 }
 
-template<class T>
+template <class T>
 inline TArrayListIterator<T> TArrayList<T>::end()
 {
   return TArrayListIterator<T>(*this, -1);
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::DelFirst()
 {
   if (this->IsEmpty())
@@ -274,7 +274,7 @@ inline void TArrayList<T>::DelFirst()
   count--;
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::DelLast()
 {
   if (this->IsEmpty())
@@ -301,7 +301,7 @@ inline void TArrayList<T>::DelLast()
   count--;
 }
 
-template<class T>
+template <class T>
 inline void TArrayList<T>::Del(TArrayListIterator<T>& e)
 {
   if (this->IsEmpty())
@@ -329,7 +329,7 @@ inline void TArrayList<T>::Del(TArrayListIterator<T>& e)
   count--;
 }
 
-template<class T>
+template <class T>
 inline T TArrayList<T>::GetFirst()
 {
   if (this->IsEmpty())
@@ -337,7 +337,7 @@ inline T TArrayList<T>::GetFirst()
   return data[root];
 }
 
-template<class T>
+template <class T>
 inline T TArrayList<T>::GetLast()
 {
   if (this->IsEmpty())
@@ -350,7 +350,7 @@ inline T TArrayList<T>::GetLast()
   return data[end];
 }
 
-template<class T>
+template <class T>
 inline int TArrayList<T>::GetCount()
 {
   return count;
