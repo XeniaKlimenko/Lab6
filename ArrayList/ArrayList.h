@@ -40,9 +40,9 @@ public:
   T GetFirst();
   T GetLast();
 
-  template <class T1>
+  template<class T1>
   friend ostream& operator<< (ostream& ostr, const TArrayList<T1> &A);
-  template <class T1>
+  template<class T1>
   friend istream& operator >> (istream& istr, TArrayList<T1> &A);
 
   template <class T>
@@ -53,7 +53,7 @@ public:
 };
 
 
-template <class T1>
+template<class T1>
 ostream& operator<< (ostream& ostr, const TArrayList<T1> &A) 
 {
   int i = A.root;
@@ -65,7 +65,7 @@ ostream& operator<< (ostream& ostr, const TArrayList<T1> &A)
   return ostr;
 }
 
-template <class T1>
+template<class T1>
 istream& operator >> (istream& istr, TArrayList<T1> &A) 
 {
   int count;
@@ -81,7 +81,7 @@ istream& operator >> (istream& istr, TArrayList<T1> &A)
 template<class T>
 inline TArrayList<T>::TArrayList(int _size)
 {
-  if (_size <= NULL)
+  if (_size <= nullptr)
     throw "wrong size";
 
   size = _size;
@@ -95,7 +95,7 @@ inline TArrayList<T>::TArrayList(int _size)
   root = -1;
 }
 
-template <class T>
+template<class T>
 TArrayList<T>::TArrayList(TArrayList<T>& _v)
 {
   count = _v.count;
@@ -112,10 +112,10 @@ TArrayList<T>::TArrayList(TArrayList<T>& _v)
   }
 
 }
-template <class T>
+template<class T>
 TArrayList<T>::~TArrayList()
 {
-  if (data != NULL)
+  if (data != nullptr)
   {
     delete[] data;
     delete[] links;
@@ -127,7 +127,7 @@ TArrayList<T>::~TArrayList()
   }
 }
 
-template <class T>
+template<class T>
 TArrayList<T>& TArrayList<T>:: operator =(TArrayList<T>& _v)
 {
   if (this == &v)
