@@ -17,7 +17,7 @@ TEST(TArrayList, can_create_Arraylist_Iterator)
 TEST(TArrayList, can_copy_Arraylist)
 {
   TArrayList<int> A(10);
-  ASSERT_NO_THROW(TArrayList<int> temp2(A));
+  ASSERT_NO_THROW(TArrayList<int> temp(A));
 }
 
 TEST(TArrayList, can_copy_Arraylist_Iterator)
